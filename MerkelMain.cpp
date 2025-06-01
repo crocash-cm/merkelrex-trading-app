@@ -10,7 +10,7 @@
 
 
 const int ASCII_VALUE_OF_ZERO = 48;
-const std::string DATABASE_FILENAME = "OrderBookDB.csv";
+
 
 /** Constructor for MerkelMain */
 MerkelMain::MerkelMain()
@@ -197,6 +197,16 @@ void MerkelMain::printWallet()
 void MerkelMain::gotoNextTimeUnit()
 {
     std::cout << "Time marches on!" << std::endl;
+    for (std::string& p : orderBook.getKnownProducts())
+    {
+        std::cout << "Matching: " << p << std::endl;
+        std::vector<OrderBookEntry> sales = orderBook.matchAsksToBids(p, currentTime);
+        std::cout << "Sales: " << sales.size() << std::endl;
+        for (OrderBookEntry& sale : sales)
+        {
+            std::cout << "Sale price: " << sale.price << " amount " << sale.amount << std::endl;
+        }
+}
     currentTime = orderBook.getNextTime(currentTime);
 }
 

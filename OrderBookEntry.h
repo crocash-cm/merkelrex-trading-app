@@ -3,7 +3,7 @@
 // Above is include guard, another option is #pragma once
 #include <string>
 
-enum class OrderBookType{bid, ask};
+enum class OrderBookType{bid, ask, sale};
 
 class OrderBookEntry 
 {

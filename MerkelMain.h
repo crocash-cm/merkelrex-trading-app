@@ -3,6 +3,9 @@
 // Above is include guard, another option is #pragma once
 #include "OrderBookEntry.h"
 #include "OrderBook.h"
+#include <string>
+
+const std::string DATABASE_FILENAME = "./test.csv";
 
 class MerkelMain 
 {
@@ -30,7 +33,7 @@ class MerkelMain
         bool isRunning;
         std::string currentTime;
         // Order book
-        OrderBook orderBook{"OrderBookDB.csv"};
+        OrderBook orderBook{DATABASE_FILENAME};
         
 };
 // Endif for include guard

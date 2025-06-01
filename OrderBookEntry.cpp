@@ -20,6 +20,8 @@ std::string OrderBookEntry::obtToString()
         return "ask";
     case OrderBookType::bid:
         return "bid";
+    case OrderBookType::sale:
+        return "sale";
     default:
         throw std::invalid_argument("OrderBookEntry::obtToString invalid type.");
     }
@@ -34,6 +36,10 @@ std::string OrderBookEntry::obtToString()
     else if (s == "bid")
     {
         return OrderBookType::bid;
+    }
+    else if (s == "sale")
+    {
+        return OrderBookType::sale;
     }
     else
     {

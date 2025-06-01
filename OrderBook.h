@@ -27,6 +27,10 @@ class OrderBook
         /** Inserts order */
         void insertOrder(OrderBookEntry& order);
 
+        /** Matches bids, takes product, timestamp returns OrderBookEntry Vector */
+        std::vector<OrderBookEntry> matchAsksToBids(std::string product, std::string timestamp);
+        
+
         static double maxPrice(std::vector<OrderBookEntry>& orders);
         static double minPrice(std::vector<OrderBookEntry>& orders);
         static double averagePrice(std::vector<OrderBookEntry>& orders);

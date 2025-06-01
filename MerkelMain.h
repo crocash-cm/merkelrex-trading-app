@@ -5,7 +5,7 @@
 #include "OrderBook.h"
 #include <string>
 
-const std::string DATABASE_FILENAME = "./test.csv";
+const std::string DATABASE_FILENAME = "./loncppDB.csv";
 
 class MerkelMain 
 {

@@ -162,6 +162,28 @@ void MerkelMain::placeAsk()
 /** Places bid to buy */
 void MerkelMain::placeBid()
 {
+    std::cout << "Make an bid: product,price,amount, e.g.: ETH/BTC,200,0.5" << std::endl;
+    std::string input;
+    std::getline(std::cin, input);
+    std::vector<std::string> tokens = csvReader::tokenise(input, ',');
+    if (tokens.size() != 3)
+    {
+        std::cout << "MerkelMain::placeBid Bad input!" << std::endl;
+    }
+    else
+    {
+        try
+        {
+            OrderBookEntry obe = csvReader::stringsToOBE(currentTime, tokens[0], "bid", tokens[1], tokens[2]);
+            orderBook.insertOrder(obe);
+        }
+        catch(const std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+             
+    }
+    std::cout << "You typed: " << input << std::endl;
     std::cout << "Bid made!" << std::endl;
 }
 

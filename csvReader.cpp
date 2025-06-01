@@ -23,14 +23,14 @@ std::vector<OrderBookEntry> csvReader::read(std::string filename)
     std::ifstream csvFile{filename};
     if (!csvFile.is_open())
     {
-        throw std::runtime_error("File reading error. File not found or cannot be read.");
+        throw std::runtime_error("csvReader::read File reading error. File not found or cannot be read.");
     }
     while (std::getline(csvFile, line))
     {
         tokens = tokenise(line, ',');
         if (tokens.size() != EXPECTED_NUMBER_OF_TOKENS)
         {
-            std::cout << "Line read error: token number does not match expected output." << std::endl;
+            std::cout << "csvReader::read Line read error: token number does not match expected output." << std::endl;
             continue;
         }
         try
@@ -41,7 +41,7 @@ std::vector<OrderBookEntry> csvReader::read(std::string filename)
         }
         catch (const std::exception& e)
         {
-            std::cout << "Bad data encountered, skipping." << std::endl;
+            std::cout << "csvReader::read Bad data encountered, skipping." << std::endl;
             continue;
         }
         OrderBookEntry obe{tokens[0], tokens[1], obt, price, amount};

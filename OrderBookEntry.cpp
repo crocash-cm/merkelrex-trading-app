@@ -40,3 +40,8 @@ std::string OrderBookEntry::obtToString()
         throw std::invalid_argument("OrderBookEntry::stringToOBT invalid argument");
     }
  }
+
+ bool OrderBookEntry::compareByTimestamp(OrderBookEntry& e1, OrderBookEntry& e2)
+ {
+    return (e1.timestamp < e2.timestamp);
+ }

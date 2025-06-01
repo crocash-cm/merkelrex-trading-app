@@ -147,6 +147,7 @@ void MerkelMain::placeAsk()
         try
         {
             OrderBookEntry obe = csvReader::stringsToOBE(currentTime, tokens[0], "ask", tokens[1], tokens[2]);
+            orderBook.insertOrder(obe);
         }
         catch(const std::exception& e)
         {

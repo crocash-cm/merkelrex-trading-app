@@ -4,6 +4,7 @@
 #include <vector>
 #include <map>
 #include <set>
+#include <algorithm>
 
 /** Constructor, take filename and load csv into order book */
 OrderBook::OrderBook(std::string filename)
@@ -81,6 +82,13 @@ std::string OrderBook::getNextTime(const std::string& timestamp)
     }
     
     return next_timestamp;
+}
+
+/** Inserts order into orderbook */
+void OrderBook::insertOrder(OrderBookEntry& order)
+{
+    orders.push_back(order);
+    std::sort(orders.begin(), orders.end(), OrderBookEntry::compareByTimestamp);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////

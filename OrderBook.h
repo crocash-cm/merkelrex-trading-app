@@ -24,6 +24,9 @@ class OrderBook
         /** Returns next time, loops to beginning if no time found */
         std::string getNextTime(const std::string& timestamp);
 
+        /** Inserts order */
+        void insertOrder(OrderBookEntry& order);
+
         static double maxPrice(std::vector<OrderBookEntry>& orders);
         static double minPrice(std::vector<OrderBookEntry>& orders);
         static double averagePrice(std::vector<OrderBookEntry>& orders);

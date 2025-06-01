@@ -18,6 +18,8 @@ class OrderBookEntry
         // Methods
         std::string obtToString();
         static OrderBookType stringToOBT(std::string s);
+        /** Returns true if e1 timestamp smaller than e2 */
+        static bool compareByTimestamp(OrderBookEntry& e1, OrderBookEntry& e2);
 
         // Fields
         std::string timestamp;

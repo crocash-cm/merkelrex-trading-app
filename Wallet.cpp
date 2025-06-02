@@ -2,7 +2,7 @@
  #include <map>
  #include "Wallet.h"
  
- Wallet();
+ Wallet::Wallet()
  {
 
  }

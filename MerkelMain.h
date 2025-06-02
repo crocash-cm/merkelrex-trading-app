@@ -3,6 +3,7 @@
 // Above is include guard, another option is #pragma once
 #include "OrderBookEntry.h"
 #include "OrderBook.h"
+#include "Wallet.h"
 #include <string>
 
 const std::string DATABASE_FILENAME = "./loncppDB.csv";
@@ -34,6 +35,7 @@ class MerkelMain
         std::string currentTime;
         // Order book
         OrderBook orderBook{DATABASE_FILENAME};
+        Wallet wallet{};
         
 };
 // Endif for include guard

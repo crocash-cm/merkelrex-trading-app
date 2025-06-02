@@ -2,7 +2,6 @@
 #include "MerkelMain.h"
 #include "OrderBookEntry.h"
 #include "OrderBook.h"
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -26,6 +25,11 @@ void MerkelMain::init()
     // loadOrderBook();
     // Set start time
     currentTime = orderBook.getEarliestTime();
+
+    // Initialise wallet
+    wallet.depositCurrency("BTC", 10);
+    wallet.depositCurrency("USDT", 100000);
+
     // Start program
     isRunning = true; 
     while (isRunning) 
@@ -190,7 +194,7 @@ void MerkelMain::placeBid()
 /** Prints wallet */
 void MerkelMain::printWallet()
 {
-    std::cout << "Your wallet is empty!" << std::endl;
+    std::cout << wallet.toString() << std::endl;
 }
 
 /** Goes to next time unit */

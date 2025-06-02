@@ -23,9 +23,9 @@ std::vector<std::string> OrderBook::getKnownProducts()
         prodSet.insert(e.product);
     }
     // Copy set to vector for return
-    for (const std::string s : prodSet)
+    for (const std::string p : prodSet)
     {
-        products.push_back(s);
+        products.push_back(p);
     }
     return products;
 }

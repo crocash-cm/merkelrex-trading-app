@@ -16,7 +16,7 @@ class OrderBookEntry
             double _amount);
 
         // Methods
-        std::string obtToString();
+        static std::string obtToString(OrderBookType type);
         static OrderBookType stringToOBT(std::string s);
         /** Returns true if e1 timestamp smaller than e2 */
         static bool compareByTimestamp(OrderBookEntry& e1, OrderBookEntry& e2);

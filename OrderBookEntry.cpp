@@ -11,10 +11,9 @@ OrderBookEntry::OrderBookEntry(std::string _timestamp, std::string _product,  Or
       
 }
 
-std::string OrderBookEntry::obtToString()
+std::string OrderBookEntry::obtToString(OrderBookType type)
 {
-    OrderBookType t = this->type;
-    switch (t)
+    switch (type)
     {
     case OrderBookType::ask:
         return "ask";

@@ -1,5 +1,6 @@
 #include <string>
 #include <map>
+#include "OrderBookEntry.h"
 
 class Wallet
 {
@@ -14,6 +15,7 @@ class Wallet
         bool withdrawCurrency(std::string type, double amount);
         /** Check whether wallet contains enough of currency */
         bool containsCurrency(std::string type, double amount);
+        bool canFulfillOrder(OrderBookEntry order);
         /** Generate string representation of the wallet */
         std::string toString();
 

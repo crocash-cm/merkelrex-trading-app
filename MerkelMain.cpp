@@ -28,6 +28,7 @@ void MerkelMain::init()
 
     // Initialise wallet
     wallet.depositCurrency("BTC", 10);
+    wallet.depositCurrency("ETH", 50);
     wallet.depositCurrency("USDT", 100000);
 
     // Start program

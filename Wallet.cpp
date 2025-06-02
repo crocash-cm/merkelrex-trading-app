@@ -16,6 +16,20 @@
     
  }
 
+ bool Wallet::withdrawCurrency(std::string type, double amount)
+ {
+    if (amount < 0)
+    {
+        return false;
+    }
+    if (currencies[type] >= amount)
+    {
+        currencies[type] -= amount;
+        return true;
+    }
+    return false;
+ }
+
  /** Check whether wallet contains enough of currency */
 bool Wallet::containsCurrency(std::string type, double amount)
 {

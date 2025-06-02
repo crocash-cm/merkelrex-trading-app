@@ -10,6 +10,8 @@ class Wallet
         // Methods
         /** Deposits currency into wallet */
         void depositCurrency(std::string type, double amount);
+        /** Withdraws currency into wallet */
+        bool withdrawCurrency(std::string type, double amount);
         /** Check whether wallet contains enough of currency */
         bool containsCurrency(std::string type, double amount);
         /** Generate string representation of the wallet */

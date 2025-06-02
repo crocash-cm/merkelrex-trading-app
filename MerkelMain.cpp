@@ -189,7 +189,16 @@ void MerkelMain::placeBid()
         try
         {
             OrderBookEntry obe = csvReader::stringsToOBE(currentTime, tokens[0], "bid", tokens[1], tokens[2]);
-            orderBook.insertOrder(obe);
+            if (wallet.canFulfillOrder(obe))
+            {
+                std::cout << "Wallet looks good." << std:: endl;
+                orderBook.insertOrder(obe);
+            }
+            else
+            {
+                std::cout << "Insufficient funds in wallet." << std::endl;
+            }
+            
         }
         catch(const std::exception& e)
         {

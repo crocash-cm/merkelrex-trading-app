@@ -9,13 +9,25 @@
 
  void Wallet::depositCurrency(std::string type, double amount)
  {
-    currencies[type] += amount;
+    if (amount > 0)
+    {
+        currencies[type] += amount;
+    }
+    
  }
 
  /** Check whether wallet contains enough of currency */
 bool Wallet::containsCurrency(std::string type, double amount)
 {
-    return (currencies[type] >= amount);
+    if (currencies.count(type) == 0)
+    {
+        return false;
+    }
+    if (currencies[type] >= amount)
+    {
+        return true;
+    }
+    return false;
 }
 
 /** Generate string representation of the wallet */

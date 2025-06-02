@@ -36,7 +36,7 @@ std::string Wallet::toString()
     std::string walletString = "";
     for (auto const& [currency, amount] : currencies)
     {
-        walletString = walletString + currency + ": " + std::to_string(amount) + " ";
+        walletString = walletString + currency + ": " + std::to_string(amount) + "\n";
     }
     return walletString;
 }

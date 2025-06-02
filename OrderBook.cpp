@@ -105,7 +105,20 @@ std::vector<OrderBookEntry> OrderBook::matchAsksToBids(std::string product, std:
         {
             if (bid.price >= ask.price)
             {
-                OrderBookEntry sale{timestamp, product, OrderBookType::sale, ask.price, 0};
+                // Default type, because we do not care about the wallet in case of dataset (non-user)
+                OrderBookEntry sale{timestamp, product, OrderBookType::asksale, ask.price, 0};
+                if (bid.username == "simuser")
+                {
+                    sale.type = OrderBookType::bidsale;
+                    sale.username = "simuser";
+                    
+                }
+                if (ask.username == "simuser")
+                {
+                    sale.type = OrderBookType::asksale;
+                    sale.username = "simuser";
+                }
+                
                 if (bid.amount == ask.amount) 
                 {
                     sale.amount = ask.amount;

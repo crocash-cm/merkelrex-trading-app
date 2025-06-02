@@ -152,6 +152,8 @@ void MerkelMain::placeAsk()
         try
         {
             OrderBookEntry obe = csvReader::stringsToOBE(currentTime, tokens[0], "ask", tokens[1], tokens[2]);
+            // Set username to "simuser" so we know it comes from the user
+            obe.username = "simuser";
             if (wallet.canFulfillOrder(obe))
             {
                 std::cout << "Wallet looks good." << std::endl;
@@ -189,6 +191,8 @@ void MerkelMain::placeBid()
         try
         {
             OrderBookEntry obe = csvReader::stringsToOBE(currentTime, tokens[0], "bid", tokens[1], tokens[2]);
+            // Set username to "simuser" so we know it came from the user
+            obe.username = "simuser";
             if (wallet.canFulfillOrder(obe))
             {
                 std::cout << "Wallet looks good." << std:: endl;
@@ -213,7 +217,7 @@ void MerkelMain::placeBid()
 /** Prints wallet */
 void MerkelMain::printWallet()
 {
-    std::cout << wallet.toString() << std::endl;
+    std::cout << wallet.toString();
 }
 
 /** Goes to next time unit */
@@ -228,6 +232,10 @@ void MerkelMain::gotoNextTimeUnit()
         for (OrderBookEntry& sale : sales)
         {
             std::cout << "Sale price: " << sale.price << " amount " << sale.amount << std::endl;
+            if (sale.username == "simuser")
+            {
+                // update wallet
+            }
         }
 }
     currentTime = orderBook.getNextTime(currentTime);

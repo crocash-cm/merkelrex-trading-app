@@ -14,8 +14,7 @@
     if (amount > 0)
     {
         currencies[type] += amount;
-    }
-    
+    }    
  }
 
  bool Wallet::withdrawCurrency(std::string type, double amount)

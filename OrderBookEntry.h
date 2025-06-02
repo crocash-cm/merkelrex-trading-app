@@ -1,9 +1,8 @@
-#ifndef ORDERBOOKENTRY_H
-#define ORDERBOOKENTRY_H
-// Above is include guard, another option is #pragma once
+#pragma once
+
 #include <string>
 
-enum class OrderBookType{bid, ask, sale};
+enum class OrderBookType{bid, ask, bidsale, asksale};
 
 class OrderBookEntry 
 {
@@ -13,7 +12,8 @@ class OrderBookEntry
             std::string _product, 
             OrderBookType _type, 
             double _price, 
-            double _amount);
+            double _amount,
+            std::string _username = "dataset");
 
         // Methods
         static std::string obtToString(OrderBookType type);
@@ -35,7 +35,7 @@ class OrderBookEntry
         OrderBookType type;
         double price;
         double amount;
+        std::string username;
         
 };
-// Endif for include guards
-#endif
+
